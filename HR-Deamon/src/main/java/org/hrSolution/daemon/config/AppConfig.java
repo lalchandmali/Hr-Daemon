@@ -11,7 +11,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-
 /**
  * This class is used for configuration of resources and view Resolver
  * 
@@ -21,21 +20,20 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc
 @ComponentScan(basePackages = "org.hrSolution.daemon")
 public class AppConfig extends WebMvcConfigurerAdapter {
-	
+
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
 		viewResolver.setViewClass(JstlView.class);
 		viewResolver.setPrefix("/WEB-INF/views/");
 		viewResolver.setSuffix(".jsp");
-
 		return viewResolver;
 	}
 
 	@Override
-	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+	public void configureDefaultServletHandling(
+			DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
-
 
 }
